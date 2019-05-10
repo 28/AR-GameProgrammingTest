@@ -1,0 +1,8 @@
+﻿1. NPCs
+An NPC has several attributes: name, age, hair color, job, family members.
+There are several types of jobs, such as farmer, logger, fisherman, scribe, armor merchant, weapon merchant,
+magic merchant, guard, innkeeper. An NPC can only have one job at a time but can change jobs over time. Each job has
+unique functionality performed by the NPC when working. An NPC has N+ family members and they can be of different types,
+like: brother, sister, mother, father, son, daughter
+
+Design a class structure to meet the above requirements.

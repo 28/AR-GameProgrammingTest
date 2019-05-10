@@ -1,0 +1,8 @@
+﻿2. Armies
+An army is made up of units. Units can be warriors, archers, or cavalry.
+Each unit has its own hitpoints.
+Warriors are weak vs archers but strong against cavalry.
+Calvary are weak vs warriors but strong against archers.
+Archers are weak vs cavalry but strong against warriors.
+
+Create a class structure and combat algorithm to resolve a battle between two armies of varying unit composition.

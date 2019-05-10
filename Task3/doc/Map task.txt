@@ -1,0 +1,8 @@
+﻿3. Maps
+The world map is a grid. Each tile has a type such as: water, grass, mountain, desert, arctic.
+A map tile can have modifiers or decorators on it such as forests, river, lava, or beach (shares a border with a water
+tile). A map tile can be explored or unexplored. A map tile can be within the vision range of the player or not.
+Every day a map tile has a chance to “do” something, like grow fruit or generate a monster patrol.
+
+a. Create a data structure to store the map data.
+b. How would you interface with the map in the game loop?
