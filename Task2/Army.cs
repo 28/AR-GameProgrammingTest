@@ -62,8 +62,7 @@ namespace Task2
         private void TakeDamage(int damage)
         {
             HitPoints -= damage;
-            if (HitPoints <= 0)
-                Dead = true;
+            Dead |= HitPoints <= 0;
         }
 
         protected abstract int GetBaseDamage();
@@ -97,7 +96,7 @@ namespace Task2
 
         public override string ToString()
         {
-            return "Warrior (" + HitPoints + " hit points)";
+            return "Warrior (" + HitPoints + " hit points, dead: " + Dead + ")";
         }
     }
 
@@ -127,7 +126,7 @@ namespace Task2
 
         public override string ToString()
         {
-            return "Archer (" + HitPoints + " hit points)";
+            return "Archer (" + HitPoints + " hit points, dead: " + Dead + ")";
         }
     }
 
@@ -157,7 +156,7 @@ namespace Task2
 
         public override string ToString()
         {
-            return "Cavalry (" + HitPoints + " hit points)";
+            return "Cavalry (" + HitPoints + " hit points, dead: " + Dead + ")";
         }
     }
 
@@ -225,13 +224,10 @@ namespace Task2
 
             Console.WriteLine("Army 2 : " + army2);
 
-            while (!army1.Defeated() || !army2.Defeated())
+            while (!army1.Defeated() && !army2.Defeated())
             {
                 var unit1 = army1.GetLiveUnit();
                 var unit2 = army2.GetLiveUnit();
-
-                if (unit1 == null || unit2 == null)
-                    break;
 
                 if (Random.Next(0, 1) == 0) // choose who attacks first
                 {
@@ -248,9 +244,15 @@ namespace Task2
             }
 
             if (army1.Defeated())
+            {
                 Console.WriteLine("Winner Army 2: " + army2);
+                Console.WriteLine("Loser Army 1: " + army1);
+            }
             else
+            {
                 Console.WriteLine("Winner Army 1: " + army1);
+                Console.WriteLine("Loser Army 2: " + army2);
+            }
         }
     }
 }
